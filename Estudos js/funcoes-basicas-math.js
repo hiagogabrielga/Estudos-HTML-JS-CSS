@@ -4,7 +4,7 @@ var z = 3;
 
 //================================= Potência ===================================================
 
-Math.pow(2,3)  // => 9: 2 elevado à potência 3
+Math.pow(2,3)  // => 8: 2 elevado à potência 3
 //eleva o número antes da virgula pelo número após a vígula
 //Math.pow(base,potência)
 
