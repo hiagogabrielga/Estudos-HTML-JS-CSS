@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento 005</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            color: white;
+            font: normal 18px arial;
+        }
+    </style>
+</head>
+<body>
+    <h1 name = ola>Iniciando meus estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p class="jj">Apreendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id='msg'>Clique em min</div>
+    <script>
+        var corpo = window.document.body
+        var a = window.document.getElementsByTagName('p')[1]
+        a.style.background = 'blue'
+
+        var b = window.document.getElementById('msg')
+        b.innerText = 'Arguardando.....'
+
+        var c = window.document.getElementsByName('ola')[0]
+        c.style.background = 'green'
+
+        var d = window.document.getElementsByClassName('jj')[0]
+        d.style.color = 'yellow'
+
+        var e = window.document.querySelector('div#msg')
+        e.style.background = 'purple'
+    </script>
+</body>
+</html>

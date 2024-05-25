@@ -1,0 +1,10 @@
+O DOM, ou Document Object Model, é uma representação estruturada de documentos. 
+No contexto de páginas web, o DOM refere-se à representação 
+estruturada de um documento HTML ou XML. 
+Ele fornece uma forma programática de acessar, modificar, 
+adicionar ou remover conteúdo e estrutura de um documento. 
+O DOM é uma representação da estrutura de uma página da web, 
+com cada elemento da página sendo representado 
+como um objeto na árvore do DOM. Portanto, o DOM permite 
+que os desenvolvedores manipulem a 
+página da web dinamicamente usando JavaScript3.
