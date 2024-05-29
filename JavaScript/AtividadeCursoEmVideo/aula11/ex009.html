@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual pais é você <input type="text" id="caixaPergunta">
+    <input type="button" value="OK" onclick="clicar()">
+    <div id="res">
+
+    </div>
+    <script>
+        function clicar() {
+            var pais = window.document.getElementById("caixaPergunta")
+            var resposta = window.document.getElementById("res")
+            resposta.innerHTML = `<p>Vivendo no(a) ${pais.value}</p>`
+            if (pais.value != "Brasil") {
+                resposta.innerHTML += 'Você é estrangeiro'
+                resposta.style.background = "white"
+                resposta.style.color = "black"
+            } else {
+                resposta.innerHTML += "Você é Brasileiro"
+                resposta.style.background = "green"
+                resposta.style.color = "yellow"
+            }
+
+        }
+    </script>
+</body>
+</html>

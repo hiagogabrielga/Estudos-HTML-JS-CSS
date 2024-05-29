@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+</head>
+<body>
+    <h1>Sistema de multas</h1>
+    Digite sua velocidade <input type="number" id="caixaVelocidade">
+    <input type="button" value="OK" onclick = "clicar()">
+    <div id="res"></div>
+    <p></p>
+    <script>
+        function clicar () {
+            
+            var velocidade = window.document.getElementById("caixaVelocidade")
+            var resposta = window.document.getElementById("res")
+            var velocidadeNumber = Number(velocidade.value)
+            resposta.innerHTML = `<p>Sua velociade é de <strong>${velocidadeNumber}</strong></p>`
+            if (velocidadeNumber > 60) {
+                resposta.innerHTML += "<p>Você foi <strong>multado</strong> por exceso de velocidade</p>"
+            }
+            resposta.innerHTML += "<p>Use sempre sinto de segurança</p>"
+           
+        }
+    </script>
+</body>
+</html>
