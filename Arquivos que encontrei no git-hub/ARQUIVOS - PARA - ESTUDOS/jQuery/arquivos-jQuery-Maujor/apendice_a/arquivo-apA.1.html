@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Livro jQuery do Maujor | FAQ</title>
+<link rel="stylesheet" type="text/css" href="normal.css" />
+<script type="text/javascript" src="../jquery-1.2.6.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	jQuery(document).ready(function() {
+		$('.mensagem').css('display', 'none');
+		$('.mensagem1').css('display', 'none');
+	// Não funciona
+  		$('#nfunciona').click(function() {
+		$('#minhaLista').find('li').eq(2).text().replace('texto do terceiro item','TEXTO ALTERADO');
+		});
+	// Funciona! 
+  		$('#funciona').click(function() {
+		var $elementoTres = $('#minhaLista').find('li').eq(2);
+  		var textoElementoTres = $elementoTres.text().replace('texto do terceiro item','TEXTO ALTERADO');
+  		$elementoTres.text(textoElementoTres).css('color', 'red'); 
+		});
+	
+  		$('#reset').click(function() {
+		var $elementoTres = $('#minhaLista').find('li').eq(2);
+  		var textoElementoTres = $elementoTres.text().replace('TEXTO ALTERADO','texto do terceiro item');
+  		$elementoTres.text(textoElementoTres).css('color', ''); 
+		});
+	
+	// Animação x nível de bloco
+		$('#lorem').click(function() {
+			$(this).hide(3000, function() { 
+			$('.mensagem').toggle();
+			$('#recarregar').toggle();
+			});
+		});	
+	// append copiar x mover
+		$('#aum').click(function() {
+		$(this).toggle();
+		$('#adois').toggle();
+		$('.mensagem1').toggle();
+		$('#um').append( $('#inserir') );
+		$('.movido').toggle();
+		$('.recarregar1').toggle();
+		});	
+	
+		$('#adois').click(function() {
+		$(this).toggle();
+		$('#aum').toggle();
+		$('.mensagem1').toggle();
+		$('.dois').append( $('#inserir') );
+		$('.copiado').toggle();
+		$('.recarregar1').toggle();
+		});	
+	// mudar estilo
+		$('#estilo-um').click(function(event) {
+			event.preventDefault();
+			$('link[rel="stylesheet"]').attr('href', 'um.css');
+			});
+ 
+		$('#estilo-dois').click(function(event) {
+			event.preventDefault();
+			$('link[rel="stylesheet"]').attr('href', 'dois.css');
+			});
+ 
+		$('#estilo-normal').click(function(event) {
+			event.preventDefault();
+			$('link[rel="stylesheet"]').attr('href', 'normal.css');
+		});
+	});
+// ]]>	
+</script>
+</head>
+<body>
+<div id="tudo">
+<h1>Apêndice A - FAQ jQuery</h1>
+<h2>Como faço para habilitar e desabilitar um elemento?</h2>
+<select id="xpto" style="width:200px">
+<option>Opção um</option>
+<option>Opção dois</option>
+</select>
+<input type="button" value="Desabilitar" onclick="$('#xpto').attr('disabled', 'disabled')" />
+<input type="button" value="Habilitar" onclick="$('#xpto').removeAttr('disabled')" />
+
+<hr />
+<h2>Como faço para marcar e desmarcar um elemento input?</h2> 
+<label><input type="checkbox" id="ypto" />Marca/Desmarca</label>
+<input type="button" value="Marcar" onclick="$('#ypto').attr('checked', 'checked')" />
+<input type="button" value="Desmarcar" onclick="$('#ypto').removeAttr('checked')" />
+
+<hr />
+<h2>Como obter o valor textual da opção selecionada em um elemento select?</h2>
+<select id="meuSelect" style="width:200px">
+<option value="fruta_um">Abacate</option>
+<option value="fruta_dois">Abacaxi</option>
+<option value="fruta_tres">Banana </option>
+<option value="fruta_quatro">Figo</option>
+<option value="fruta_cinco">Goiaba</option>
+<option value="fruta_seis">Laranja</option>
+</select>
+<input type="button" value="Valor" onclick="alert( $('#meuSelect').val() )" />
+<input type="button" value="Texto" onclick="alert( $('#meuSelect option:selected').text() )" />
+
+<hr />
+<h2>Como substituir o texto do terceiro elemento de um conjunto de seis elementos?</h2>
+<ol id="minhaLista">
+	<li>texto do primeiro item</li>
+	<li>texto do segundo item</li>
+	<li>texto do terceiro item</li>
+	<li>texto do quarto item</li>
+	<li>texto do quinto item</li>
+	<li>texto do sexto item</li>
+</ol>
+<p>Clique neste botão e o script NÃO funciona: <input type="button" value="Alterar texto" id="nfunciona" style="vertical-align:middle" /><br />
+</p>
+<p>Clique neste botão e o script funciona: <input type="button" value="Alterar texto" id="funciona" style="vertical-align:middle" /><br /><input type="button" value="Reset" id="reset" /></p>
+
+<hr />
+<h2>Por que a animação de um elemento faz com ele se comporte como elemento nível de bloco?</h2>
+<p>Clique no texto  abaixo para visualizar animação x nível de bloco</p> 
+<div class="mensagem">
+<p id="recarregar" style="display:none; color:red">Recarregue a página para repetir</p>
+</div>
+
+<a href="#recarregar" id="lorem">Lorem ipsum dolor</a>
+
+<hr />
+<h2>Qual o comportamento dos métodos de inserção quando o conteúdo a inserir é um objeto jQuery retirado do documento?</h2> 
+<p><b id="inserir">texto negrito inserido</b></p>
+
+<p id="um">Inserção somente neste parágrafo: </p>
+
+<p class="dois">Inserção neste parágrafo e no próximo: </p>
+<p class="dois">Inserção neste parágrafo e no anterior: </p>
+<button type="button" id="aum">append em um elemento</button>
+<button type="button" id="adois">append em mais de um elemento</button>
+<div class="mensagem1">
+<p class="movido" style="display:none;">Notar que o texto foi movido</p>
+<p class="copiado" style="display:none;">Notar que o texto foi copiado</p>
+<p class="recarregar1" style="display:none; color:red">Recarregue a página para repetir</p>
+</div>
+
+<hr />
+<h2>Como construir uma chave de mudança de estilo?</h2> 
+<h2>Escolha um estilo</h2>
+<button type="button" id="estilo-um">Tema um</button>
+<br />
+<button type="button" id="estilo-dois">Tema dois</button>
+<br />
+<button type="button" id="estilo-normal">Tema normal</button>
+
+<hr />
+
+<i style="display:block; font-style:normal; margin:50px 0; border-top:1px dotted #ccc;
+padding-top:5px;">Arquivos exemplo:  <a href="../cap_14/arquivo-14.3a.html">&laquo; capítulo 14</a></i>
+
+
+
+</div>
+</body>
+</html>
